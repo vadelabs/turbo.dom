@@ -1,0 +1,3 @@
+{:lint-as {devcards.core/deftest               cljs.test/deftest
+           devcards.core/defcard               cljs.test/deftest}
+ :linters {}}

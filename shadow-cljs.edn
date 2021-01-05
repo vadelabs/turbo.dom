@@ -1,0 +1,48 @@
+{:deps     {:aliases [:env/develop]}
+ :nrepl    {:port 9000}
+ :http     {:port 9631}
+ :dev-http {8000 "classpath:public"}
+ :jvm-opts ["-Xmx2G"]
+ :builds   {:project/develop
+            {:target           :browser
+             :output-dir       "resources/public/js"
+             :asset-path       "/js"
+             :modules          {:shared {}
+                                :main   {:init-fn    user/start
+                                         :entries    [user]
+                                         :depends-on #{:shared}}}
+             :compiler-options {:output-feature-set :es8
+                                :output-wrapper false}
+             :devtools         {:after-load user/restart
+                                :preloads   []}}
+            :project/cards
+            {:target           :browser
+             :output-dir       "resources/public/js/cards"
+             :asset-path       "/js/cards"
+             :modules          {:shared {}
+                                :main   {:init-fn    com.vadelabs.turbo.dom-card/start
+                                         :entries    [com.vadelabs.turbo.dom-card]
+                                         :depends-on #{:shared}}}
+             :compiler-options {:devcards           true
+                                :output-feature-set :es8
+                                :output-wrapper false}
+             :build-options {:ns-aliases {devcards-marked cljsjs.marked
+                                          devcards-syntax-highlighter cljsjs.highlight}}
+             :devtools {:after-load com.vadelabs.turbo.dom-card/restart
+                        :preloads []}}
+
+            :project/tests
+            {:target           :browser
+             :output-dir       "resources/public/js/tests"
+             :asset-path       "js/tests"
+             :modules          {:shared {}
+                                :main   {:init-fn    com.vadelabs.turbo.dom-test/start
+                                         :entries    [com.vadelabs.turbo.dom-test]
+                                         :depends-on #{:shared}}}
+             :compiler-options {:devcards           true
+                                :output-feature-set :es8
+                                :output-wrapper false}
+             :build-options {:ns-aliases {devcards-marked cljsjs.marked
+                                          devcards-syntax-highlighter cljsjs.highlight}}
+             :devtools {:after-load com.vadelabs.turbo.dom-test/restart
+                        :preloads []}}}}
