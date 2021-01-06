@@ -20,13 +20,20 @@
   [x]
   ^boolean (.isValidElement (get-react) x))
 
+(defn lazy->eager
+  [items]
+  (cond->> items
+    (seq? items) (into [] (map lazy->eager))))
+
 (defn create-element
-  ([tag]
-   (create-element tag nil))
-  ([tag opts]
-   (create-element tag opts nil))
-  ([tag opts & children]
-   (apply (.createElement (get-react)) tag opts children)))
+  ([type]
+   (create-element type nil))
+  ([type opts]
+   (create-element type opts nil))
+  ([type opts children]
+   (apply (.-createElement (get-react)) type opts (lazy->eager children)))
+  ([type opts & children]
+   (apply (.-createElement (get-react)) type opts (lazy->eager children))))
 
 (defn $
   [type & args]

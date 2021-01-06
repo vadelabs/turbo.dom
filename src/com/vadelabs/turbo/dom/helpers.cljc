@@ -105,7 +105,7 @@
        (unquote-class (second class))
 
        :else
-       `(normalize-klass ~klass))))
+       `(normalize-class ~klass))))
 
 #?(:cljs
    (defn normalize-class
