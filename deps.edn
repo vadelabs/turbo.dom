@@ -1,0 +1,12 @@
+{:deps
+ {}
+
+ :aliases
+ {:env/develop {:extra-paths ["card" "test" "develop"]
+                :extra-deps {thheller/shadow-cljs {:mvn/version "2.11.10"}
+                             devcards/devcards {:mvn/version "0.2.7"}
+                             binaryage/devtools {:mvn/version "1.0.2"}
+                             org.clojure/tools.namespace {:mvn/version "1.0.0"}
+                             cljs-bean/cljs-bean {:mvn/version "1.6.0"}}}
+  :env/test
+  {:extra-paths ["test"]}}}

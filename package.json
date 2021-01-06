@@ -1,0 +1,35 @@
+{
+  "name": "turbo.dom",
+  "version": "0.0.1",
+  "description": "DOM library for building turbo applications.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vadelabs/turbo.dom.git"
+  },
+  "keywords": [
+    "clojurescript",
+    "cljs",
+    "vadelabs",
+    "react",
+    "vade",
+    "dom",
+    "turbo"
+  ],
+  "author": "Pragyan Tripathi <pragyan@vadelabs.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vadelabs/turbo.dom/issues"
+  },
+  "homepage": "https://github.com/vadelabs/turbo.dom#readme",
+  "dependencies": {
+    "create-react-class": "^15.7.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.11.10",
+    "marked": "^1.2.7",
+    "highlight.js": "^10.5.0"
+  }
+}
