@@ -20,6 +20,8 @@
   [x]
   ^boolean (.isValidElement (get-react) x))
 
+(def Fragment react/Fragment)
+
 (defn lazy->eager
   [items]
   (cond->> items

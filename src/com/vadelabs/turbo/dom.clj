@@ -27,7 +27,7 @@
   [type & args]
   (let [native? (or (keyword? type)
                     (string? type)
-                    (:native (meta type)))
+                    (:native (clojure.core/meta type)))
         type (if (keyword? type)
                (name type)
                type)]
@@ -67,6 +67,10 @@
      {:style/indent :defn}
      [& args#]
      `(com.vadelabs.turbo.dom/$ ~(keyword '~tag) ~@args#)))
+
+(defmacro <>
+  [& children]
+  `^js/React.Element ($ Fragment ~@children))
 
 (defmacro gen-tag-macros
   []
