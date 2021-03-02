@@ -1,6 +1,6 @@
 {:deps     {:aliases [:env/develop]}
  :nrepl    {:port 9000}
- :http     {:port 9631}
+ :http     {:port 9630}
  :dev-http {8000 "classpath:public"}
  :jvm-opts ["-Xmx2G"]
  :builds   {:project/develop
